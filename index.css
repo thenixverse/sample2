@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  body {
+    @apply bg-ink text-white font-sans antialiased;
+    line-height: 1.5;
+  }
+  h1, h2, h3, h4 {
+    line-height: 1.2;
+  }
+  ::selection {
+    @apply bg-blood-500 text-white;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-blood-500 ring-offset-2 ring-offset-ink;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-widest2 text-blood-500;
+  }
+  .input {
+    @apply w-full rounded-md border border-white/10 bg-ink-800 px-4 py-3 text-sm text-white placeholder:text-zinc-500 transition-colors focus:border-blood-500 focus:outline-none focus:ring-1 focus:ring-blood-500;
+  }
+  .input-error {
+    @apply border-blood-500;
+  }
+  .label {
+    @apply mb-2 block text-xs font-semibold uppercase tracking-wider text-zinc-300;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
